@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMOY COUTURE - Ultra Luxury Hair Atelier NYC</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --champagne: #F7E7CE;
+            --pearl: #FAF6F0;
+            --gold: #D4AF37;
+            --bronze: #B87333;
+            --charcoal: #1A1614;
+            --smoke: #4A4542;
+            --ivory: #FFFFF0;
+            --taupe: #8B7E74;
+        }
+        
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--charcoal);
+            color: var(--pearl);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Cursor Effect */
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            mix-blend-mode: screen;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 22, 20, 0.85);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        header.scrolled {
+            background: rgba(26, 22, 20, 0.98);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.5em;
+            color: var(--gold);
+            text-decoration: none;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            letter-spacing: 0.6em;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--champagne);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.2em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .book-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--bronze) 100%);
+            color: var(--charcoal);
+            padding: 1rem 2.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.85rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .book-btn:hover::before {
+            left: 100%;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at top, #2A2320 0%, var(--charcoal) 50%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 1200px;
+            height: 1200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -20%;
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(184, 115, 51, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(100px, -100px) rotate(120deg); }
+            66% { transform: translate(-100px, 100px) rotate(240deg); }
+        }
+
+        .hero-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 8rem 4rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            position: relative;
+            padding-left: 4rem;
+        }
+
+        .hero-label::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 3rem;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        .hero-text h1 {
+            font-size: 5.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--pearl);
+            letter-spacing: 0.02em;
+            background: linear-gradient(135deg, var(--pearl) 0%, var(--champagne) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-text .tagline {
+            font-size: 1.4rem;
+            color: var(--champagne);
+            margin-bottom: 3rem;
+            line-height: 1.9;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .primary-btn, .secondary-btn {
+            padding: 1.4rem 3.5rem;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--bronze) 100%);
+            color: var(--charcoal);
+            border: 2px solid transparent;
+        }
+
+        .primary-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .primary-btn:hover::after {
+            width: 400px;
+            height: 400px;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.5);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .secondary-btn:hover {
+            background: var(--gold);
+            color: var(--charcoal);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 300;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--bronze) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--taupe);
+            letter-spacing: 0.2em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 700px;
+            opacity: 0;
+            animation: fadeInRight 1.2s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            top: -30px;
+            left: 30px;
+            opacity: 0.3;
+            transition: all 0.5s ease;
+        }
+
+        .hero-visual:hover .hero-frame {
+            top: -40px;
+            left: 40px;
+            opacity: 0.5;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #3A3330 0%, #2A2320 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        .hero-image-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+        }
+
+        /* Luxury Services */
+        .services {
+            padding: 10rem 4rem;
+            background: linear-gradient(180deg, var(--charcoal) 0%, #2A2320 50%, var(--charcoal) 100%);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .section-header h2 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--pearl);
+            letter-spacing: 0.05em;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: var(--champagne);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(42, 35, 32, 0.5) 0%, rgba(26, 22, 20, 0.5) 100%);
+            padding: 4rem 3rem;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--gold), var(--bronze), var(--gold));
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.6s ease;
+            filter: blur(10px);
+        }
+
+        .service-card:hover::after {
+            opacity: 0.5;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            filter: grayscale(0.3);
+            transition: all 0.5s ease;
+        }
+
+        .service-card:hover .service-icon {
+            filter: grayscale(0);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--pearl);
+            letter-spacing: 0.05em;
+        }
+
+        .service-card p {
+            color: var(--champagne);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+        }
+
+        .service-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Premium Products */
+        .products {
+            padding: 10rem 4rem;
+            background: var(--charcoal);
+        }
+
+        .products-showcase {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-top: 5rem;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, rgba(42, 35, 32, 0.4) 0%, rgba(26, 22, 20, 0.4) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.8s ease;
+            z-index: 1;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 25px 70px rgba(212, 175, 55, 0.25);
+        }
+
+        .product-image {
+            height: 350px;
+            background: linear-gradient(135deg, #3A3330 0%, #2A2320 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(26, 22, 20, 0.3) 100%);
+        }
+
+        .product-info {
+            padding: 2.5rem 2rem;
+            position: relative;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--pearl);
+            letter-spacing: 0.02em;
+        }
+
+        .product-info p {
+            color: var(--champagne);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .add-cart-btn {
+            width: 100%;
+            background: transparent;
+            color: var(--gold);
+            padding: 1.2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .add-cart-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--gold);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .add-cart-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .add-cart-btn:hover {
+            color: var(--charcoal);
+            border-color: var(--gold);
+        }
+
+        .add-cart-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Elite Booking */
+        .booking {
+            padding: 10rem 4rem;
+            background: linear-gradient(135deg, #2A2320 0%, var(--charcoal) 100%);
+            position: relative;
+        }
+
+        .booking::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(184, 115, 51, 0.03) 0%, transparent 50%);
+        }
+
+        .booking-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .booking-intro {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .booking-intro h2 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--pearl) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .booking-intro p {
+            font-size: 1.3rem;
+            color: var(--champagne);
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .booking-form-wrapper {
+            background: linear-gradient(135deg, rgba(42, 35, 32, 0.6) 0%, rgba(26, 22, 20, 0.6) 100%);
+            padding: 5rem 4rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--gold), var(--bronze), var(--gold), var(--bronze));
+            opacity: 0.1;
+            z-index: -1;
+            filter: blur(20px);
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-field {
+            position: relative;
+        }
+
+        .form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .form-field input,
+        .form-field select {
+            width: 100%;
+            padding: 1.3rem 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--pearl);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-field select option {
+            background: var(--charcoal);
+            color: var(--pearl);
+        }
+
+        .submit-booking-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--bronze) 100%);
+            color: var(--charcoal);
+            padding: 1.8rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            font-size: 1rem;
+            margin-top: 2rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-booking-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .submit-booking-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-booking-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 70px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 10rem 4rem;
+            background: var(--charcoal);
+        }
+
+        .testimonials-grid {
+            max-width: 1600px;
+            margin: 5rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(42, 35, 32, 0.5) 0%, rgba(26, 22, 20, 0.5) 100%);
+            padding: 4rem 3rem;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 8rem;
+            color: var(--gold);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--champagne);
+            margin-bottom: 2.5rem;
+            line-height: 1.9;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .testimonial-role {
+            color: var(--taupe);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            background: #1A1614;
+            padding: 6rem 4rem 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-section p {
+            line-height: 1.9;
+            color: var(--champagne);
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--champagne);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--gold);
+            padding-left: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            color: var(--champagne);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .social-icons a:hover {
+            background: var(--gold);
+            color: var(--charcoal);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-bottom {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            text-align: center;
+            color: var(--taupe);
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 4rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">AMOY COUTURE</a>
+            <ul class="nav-links">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#products">PRODUCTS</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <li><button class="book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">BOOK NOW</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-label">UPPER EAST SIDE NYC</span>
+                <h1>Elite Multi-Cultural Extensions & Wigs</h1>
+                <p class="tagline">Premium hair extensions and hand-crafted lace wigs for all hair types—straight to kinky, 2a-4c, in lengths 10-32 inches.</p>
+                <div class="hero-buttons">
+                    <a href="#booking" class="primary-btn">BOOK CONSULTATION</a>
+                    <a href="#products" class="secondary-btn">SHOP COLLECTION</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">YEARS EXCELLENCE</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">HAPPY CLIENTS</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">★★★★★</span>
+                        <span class="stat-label">5-STAR RATED</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-frame"></div>
+                <div class="hero-image">
+                    <div class="hero-image-content">Image Here</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="section-label">OUR EXPERTISE</span>
+            <h2>Signature Services</h2>
+            <p>Bespoke hair solutions tailored to your unique texture and style</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">Image Here</div>
+                <h3>Hair Extensions</h3>
+                <p>Custom extensions installation with clip-ins, tape-ins, and sew-in wefts. All textures from straight to kinky, 10-32 inches available.</p>
+                <a href="#booking" class="service-link">BOOK NOW →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">Image Here</div>
+                <h3>Custom Lace Wigs</h3>
+                <p>Hand-crafted lace front wigs and full lace wigs designed to perfectly match your natural hairline and texture.</p>
+                <a href="#booking" class="service-link">BOOK NOW →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">Image Here</div>
+                <h3>Color Services</h3>
+                <p>Expert balayage, highlights, and custom color matching. Color correction and transformation specialists.</p>
+                <a href="#booking" class="service-link">BOOK NOW →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">Image Here</div>
+                <h3>Precision Cutting</h3>
+                <p>Tailored haircuts for all textures. Specializing in layering, shaping, and styling for natural hair.</p>
+                <a href="#booking" class="service-link">BOOK NOW →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">Image Here�</div>
+                <h3>Consultation</h3>
+                <p>30-minute private consultation with Amoy to discuss your hair goals, texture, and the perfect solution for you.</p>
+                <a href="#booking" class="service-link">BOOK NOW →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">Image Here</div>
+                <h3>Bridal & Events</h3>
+                <p>Special occasion styling, bridal packages, and editorial work. Create your dream look for any event.</p>
+                <a href="#booking" class="service-link">BOOK NOW →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="section-header">
+            <span class="section-label">EXCLUSIVE COLLECTION</span>
+            <h2>Premium Products</h2>
+            <p>Luxury human hair extensions and wigs crafted to perfection</p>
+        </div>
+        <div class="products-showcase">
+            <div class="product-card">
+                <div class="product-image">Image Here</div>
+                <div class="product-info">
+                    <span class="product-category">EXTENSIONS</span>
+                    <h3>Silk Straight Bundles</h3>
+                    <p>Premium straight hair extensions, 100% human hair, 14-30 inches</p>
+                    <span class="product-price">$280</span>
+                    <button class="add-cart-btn"><span>ADD TO CART</span></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Image Here</div>
+                <div class="product-info">
+                    <span class="product-category">WIGS</span>
+                    <h3>Diamond Lace Wig</h3>
+                    <p>Hand-crafted HD lace front wig with natural density</p>
+                    <span class="product-price">$650</span>
+                    <button class="add-cart-btn"><span>ADD TO CART</span></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Image Here</div>
+                <div class="product-info">
+                    <span class="product-category">EXTENSIONS</span>
+                    <h3>Wave Bundle Collection</h3>
+                    <p>Luxury body wave bundles, various lengths available</p>
+                    <span class="product-price">$320</span>
+                    <button class="add-cart-btn"><span>ADD TO CART</span></button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">Image Here</div>
+                <div class="product-info">
+                    <span class="product-category">EXTENSIONS</span>
+                    <h3>Curly Luxe Bundles</h3>
+                    <p>Premium curly texture, type 3B-4C available</p>
+                    <span class="product-price">$360</span>
+                    <button class="add-cart-btn"><span>ADD TO CART</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="booking" id="booking">
+        <div class="booking-container">
+            <div class="booking-intro">
+                <span class="section-label">RESERVE YOUR EXPERIENCE</span>
+                <h2>Book Your Appointment</h2>
+                <p>Schedule your personalized consultation with NYC's most sought-after hair extension specialist</p>
+            </div>
+            <div class="booking-form-wrapper">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label>FULL NAME</label>
+                        <input type="text" id="name" placeholder="Your Name">
+                    </div>
+                    <div class="form-field">
+                        <label>EMAIL ADDRESS</label>
+                        <input type="email" id="email" placeholder="your@email.com">
+                    </div>
+                    <div class="form-field">
+                        <label>PHONE NUMBER</label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 000-0000">
+                    </div>
+                    <div class="form-field">
+                        <label>SELECT SERVICE</label>
+                        <select id="service">
+                            <option>Choose a service</option>
+                            <option>Hair Extensions - $450+</option>
+                            <option>Custom Lace Wig - $650+</option>
+                            <option>Color Services - $200+</option>
+                            <option>Consultation - $150</option>
+                            <option>Bridal Package - $800+</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label>PREFERRED DATE</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="form-field">
+                        <label>PREFERRED TIME</label>
+                        <input type="time" id="time">
+                    </div>
+                </div>
+                <button class="submit-booking-btn" onclick="submitBooking()">CONFIRM BOOKING</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">
+            <span class="section-label">CLIENT EXPERIENCES</span>
+            <h2>What Our Clients Say</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">Amoy is absolutely phenomenal. Her attention to detail and expertise with textured hair is unmatched. I've never felt more confident.</p>
+                <div class="testimonial-author">JASMINE WILLIAMS</div>
+                <div class="testimonial-role">Fashion Model</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">The best investment I've made in myself. The quality of the hair and the installation is perfection. Worth every penny.</p>
+                <div class="testimonial-author">NICOLE CHEN</div>
+                <div class="testimonial-role">Executive</div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">After years of searching, I finally found someone who truly understands my hair. Amoy is a master at her craft.</p>
+                <div class="testimonial-author">GABRIELLE ROUSSEAU</div>
+                <div class="testimonial-role">Entrepreneur</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AMOY COUTURE</h3>
+                <p>Elite multi-cultural hair extensions and wigs in the heart of Upper East Side, NYC. Where luxury meets artistry.</p>
+                <div class="social-icons">
+                    <a href="#">IG</a>
+                    <a href="#">FB</a>
+                    <a href="#">TW</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                    <li><a href="#about">About Amoy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>SERVICES</h3>
+                <ul>
+                    <li><a href="#booking">Extensions</a></li>
+                    <li><a href="#booking">Custom Wigs</a></li>
+                    <li><a href="#booking">Color Services</a></li>
+                    <li><a href="#booking">Consultation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CONTACT</h3>
+                <div class="contact-info">
+                    <div class="contact-item">874 Lexington Avenue</div>
+                    <div class="contact-item">New York, NY 10065</div>
+                    <div class="contact-item">info@amoycouture.com</div>
+                    <div class="contact-item">(212) 555-0199</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 AMOY COUTURE. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script>
+        // Cursor glow effect
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX - 200 + 'px';
+            cursorGlow.style.top = e.clientY - 200 + 'px';
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Booking submission
+        function submitBooking() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            if (name && email && phone && service && date && time) {
+                alert('Thank you for booking with AMOY COUTURE! We will confirm your appointment shortly via email.');
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('phone').value = '';
+                document.getElementById('service').value = '';
+                document.getElementById('date').value = '';
+                document.getElementById('time').value = '';
+            } else {
+                alert('Please fill in all fields to complete your booking.');
+            }
+        }
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .product-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.add-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productName = this.closest('.product-card').querySelector('h3').textContent;
+                alert(`"${productName}" has been added to your cart!`);
+            });
+        });
+    </script>
+</body>
+</html>
