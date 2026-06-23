@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Journal — TDC | The Desired Collective</title>
+<title>Why Your Protective Style Routine Is More Important Than the Style Itself — TDC Journal</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -18,6 +18,7 @@
 }
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--ivory);color:var(--dark);overflow-x:hidden;}
+
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(43,32,24,0.92);backdrop-filter:blur(12px);}
 .nav-logo{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:.02em;color:var(--text-cream);text-decoration:none;}
 .nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
@@ -32,52 +33,66 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-pill.ghost{background:transparent;color:var(--text-cream);border:1.5px solid rgba(243,236,225,.4);}
 .btn-pill.ghost:hover{background:rgba(243,236,225,.12);}
 
-.page-hero{padding:150px 48px 70px;text-align:center;background:var(--espresso);}
-.breadcrumb{display:flex;justify-content:center;gap:8px;font-size:12px;color:var(--text-mid-cream);margin-bottom:18px;}
+/* ARTICLE HEADER */
+.article-header{padding:150px 48px 0;background:var(--espresso);text-align:center;}
+.breadcrumb{display:flex;justify-content:center;gap:8px;font-size:12px;color:var(--text-mid-cream);margin-bottom:22px;flex-wrap:wrap;}
 .breadcrumb a{color:var(--text-mid-cream);text-decoration:none;}
 .breadcrumb a:hover{color:var(--sage);}
-.page-hero h1{font-family:var(--serif);font-size:clamp(38px,5.5vw,60px);font-weight:300;color:var(--text-cream);margin-bottom:14px;}
-.page-hero p{font-size:13.5px;color:var(--text-mid-cream);max-width:480px;margin:0 auto;line-height:1.7;}
+.article-cat{display:inline-block;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--sage);padding:5px 16px;border-radius:100px;margin-bottom:20px;}
+.article-header h1{font-family:var(--serif);font-size:clamp(32px,5vw,52px);font-weight:300;line-height:1.2;color:var(--text-cream);max-width:780px;margin:0 auto 22px;}
+.article-byline{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:46px;flex-wrap:wrap;}
+.byline-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#e8d5d5,#c5b5b8);flex-shrink:0;}
+.byline-text{text-align:left;}
+.byline-name{font-size:13px;font-weight:500;color:var(--text-cream);}
+.byline-meta{font-size:11.5px;color:var(--text-mid-cream);}
+.article-hero-img{max-width:920px;margin:0 auto;border-radius:20px 20px 0 0;overflow:hidden;aspect-ratio:16/8.5;position:relative;}
+.article-hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 
-.section{padding:90px 48px;}
-.bg-cream{background:var(--cream);}
-.bg-warm-white{background:var(--ivory);}
+/* ARTICLE BODY */
+.article-wrap{background:var(--ivory);padding:0 48px 0;}
+.article-body{max-width:680px;margin:0 auto;padding:56px 0 10px;}
+.lede{font-family:var(--serif);font-size:21px;font-weight:400;line-height:1.6;color:var(--dark);margin-bottom:34px;}
+.article-body h2{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--dark);margin:48px 0 18px;line-height:1.3;}
+.article-body p{font-size:15px;line-height:1.85;color:var(--mid);margin-bottom:20px;}
+.article-body p strong{color:var(--dark);font-weight:500;}
+.step-label{display:flex;align-items:center;gap:10px;margin:48px 0 18px;}
+.step-num{font-family:var(--serif);font-size:13px;color:#fff;background:var(--sage);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step-label h2{margin:0;}
+.pull-quote{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.5;color:var(--sage-dark);border-left:3px solid var(--sage);padding:6px 0 6px 28px;margin:42px 0;}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:14px;margin:24px 0 32px;}
+.checklist li{display:flex;gap:12px;font-size:14.5px;line-height:1.65;color:var(--mid);}
+.checklist li::before{content:'✓';flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--sage-dark);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.checklist li strong{color:var(--dark);font-weight:500;}
+.divider{max-width:680px;margin:52px auto;border:none;border-top:1px solid var(--border);}
 
-.filter-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:48px;}
-.filter-tab{padding:9px 20px;border-radius:100px;font-family:var(--sans);font-size:12.5px;color:var(--mid);background:#fff;border:1px solid var(--border);cursor:pointer;transition:all .2s;}
-.filter-tab:hover,.filter-tab.active{background:var(--sage);color:#fff;border-color:var(--sage);}
+/* AUTHOR CARD */
+.author-card{max-width:680px;margin:0 auto 64px;background:var(--cream);border-radius:18px;padding:28px 30px;display:flex;gap:18px;align-items:flex-start;}
+.author-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#e8d5d5,#c5b5b8);flex-shrink:0;}
+.author-card h4{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:4px;}
+.author-card .role{font-size:11.5px;color:var(--sage-dark);text-transform:uppercase;letter-spacing:.06em;font-weight:500;margin-bottom:10px;}
+.author-card p{font-size:13px;color:var(--mid);line-height:1.7;}
 
-.featured-post{max-width:880px;margin:0 auto 56px;background:#fff;border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 16px 40px rgba(43,32,24,.08);transition:transform .2s,box-shadow .2s;}
-.featured-post:hover{transform:translateY(-3px);}
-.featured-post-img{min-height:320px;position:relative;overflow:hidden;}
-.featured-post-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-.featured-post-body{padding:38px 34px;display:flex;flex-direction:column;justify-content:center;}
-.featured-badge{display:inline-block;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--sage);padding:4px 12px;border-radius:100px;margin-bottom:16px;width:fit-content;}
-.featured-post-body h2{font-family:var(--serif);font-size:29px;font-weight:300;line-height:1.25;color:var(--dark);margin-bottom:12px;}
-.featured-post-body p{font-size:13.5px;color:var(--mid);line-height:1.7;margin-bottom:20px;}
-.blog-meta-row{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--light);margin-bottom:14px;}
-.blog-meta-row .cat{color:var(--sage-dark);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-size:10.5px;}
-.blog-meta{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--light);margin-bottom:10px;}
-.blog-meta .cat{color:var(--sage-dark);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-size:10.5px;}
+/* SHARE / CTA STRIP */
+.article-cta{max-width:680px;margin:0 auto 80px;background:#fff;border:1px solid var(--border);border-radius:18px;padding:32px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.article-cta h3{font-family:var(--serif);font-size:21px;font-weight:400;color:var(--dark);margin-bottom:4px;}
+.article-cta p{font-size:12.5px;color:var(--mid);}
 
-.cards-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:0 auto;}
+/* RELATED */
+.related{background:var(--cream);padding:80px 48px;}
+.related-label{display:block;text-align:center;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:14px;}
+.related h2{font-family:var(--serif);font-size:clamp(26px,3.2vw,36px);font-weight:300;text-align:center;color:var(--dark);margin-bottom:48px;}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:0 auto;}
 .blog-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(43,32,24,.06);transition:transform .2s,box-shadow .2s;}
 .blog-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(43,32,24,.1);}
 .blog-card-img{width:100%;aspect-ratio:4/3;overflow:hidden;}
 .blog-card-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .blog-card-body{padding:20px 22px 22px;}
-.blog-card-body h3{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--dark);margin-bottom:8px;line-height:1.3;}
+.blog-meta{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--light);margin-bottom:10px;}
+.blog-meta .cat{color:var(--sage-dark);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-size:10.5px;}
+.blog-card-body h3{font-family:var(--serif);font-size:18px;font-weight:400;color:var(--dark);margin-bottom:8px;line-height:1.3;}
 .blog-card-body p{font-size:12.5px;color:var(--mid);line-height:1.6;margin-bottom:14px;}
-.link-rose{font-size:12px;font-weight:500;color:var(--sage-dark);text-decoration:none;letter-spacing:.02em;transition:opacity .2s;}
+.link-rose{font-size:12px;font-weight:500;color:var(--sage-dark);text-decoration:none;}
 .link-rose:hover{opacity:.65;}
-
-.newsletter-strip{max-width:660px;margin:0 auto;background:var(--espresso-deep);border-radius:20px;padding:44px 38px;text-align:center;}
-.newsletter-strip h3{font-family:var(--serif);font-size:27px;font-weight:300;color:#fff;margin-bottom:8px;}
-.newsletter-strip p{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:24px;line-height:1.6;}
-.newsletter-form{display:flex;gap:8px;max-width:400px;margin:0 auto;}
-.newsletter-form input{flex:1;font-family:var(--sans);font-size:13px;padding:11px 16px;border-radius:100px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;outline:none;transition:border-color .2s;}
-.newsletter-form input::placeholder{color:rgba(255,255,255,.35);}
-.newsletter-form input:focus{border-color:var(--sage);}
 
 .cta-banner{background:var(--espresso);padding:80px 48px;text-align:center;}
 .cta-banner h2{font-family:var(--serif);font-size:clamp(28px,3.4vw,40px);font-weight:300;color:var(--text-cream);margin-bottom:12px;}
@@ -87,20 +102,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 footer{background:var(--espresso-deep);color:rgba(243,236,225,.55);padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
 .footer-logo{font-family:var(--serif);font-size:20px;color:var(--text-cream);letter-spacing:.02em;}
 .footer-links{display:flex;gap:24px;}
-.footer-links a{font-size:12.5px;color:rgba(243,236,225,.55);text-decoration:none;transition:color .2s;}
+.footer-links a{font-size:12.5px;color:rgba(243,236,225,.55);text-decoration:none;}
 .footer-links a:hover{color:var(--sage);}
 .footer-copy{font-size:12px;}
 
-.scroll-fade{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
-.scroll-fade.visible{opacity:1;transform:translateY(0);}
-
 @media (max-width:768px){
   nav{padding:0 20px;} .nav-links{display:none;}
-  .page-hero{padding:130px 20px 50px;}
-  .section{padding:60px 20px;}
-  .featured-post{grid-template-columns:1fr;} .featured-post-img{min-height:220px;}
-  .cards-grid-3{grid-template-columns:1fr;}
-  .newsletter-form{flex-direction:column;}
+  .article-header{padding:130px 20px 0;}
+  .article-wrap{padding:0 20px;}
+  .article-cta{flex-direction:column;align-items:flex-start;}
+  .related{padding:60px 20px;}
+  .related-grid{grid-template-columns:1fr;}
   .cta-banner{padding:56px 20px;}
   footer{padding:32px 20px;}
 }
@@ -120,16 +132,157 @@ footer{background:var(--espresso-deep);color:rgba(243,236,225,.55);padding:48px;
   <a href="membership.html" class="btn-pill">Join Now</a>
 </nav>
 
-<div class="page-hero">
-  <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>The Journal</span></div>
-  <h1>The TDC Journal</h1>
-  <p>Beauty tips, wellness insights, style guides, and stories from our community — written for and by the women who make up The Desired Collective.</p>
+<header class="article-header">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span>›</span>
+    <a href="blog.html">The Journal</a><span>›</span>
+    <span>Hair</span>
+  </div>
+  <span class="article-cat">Hair</span>
+  <h1>Why Your Protective Style Routine Is More Important Than the Style Itself</h1>
+  <div class="article-byline">
+    <div class="byline-avatar"></div>
+    <div class="byline-text">
+      <div class="byline-name">Dominique Carter</div>
+      <div class="byline-meta">TDC Stylist · March 20, 2026 · 6 min read</div>
+    </div>
+  </div>
+  <div class="article-hero-img">
+    <img src="assets/image8.jpg" alt="Protective style hair routine"/>
+  </div>
+</header>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <p class="lede">Everyone wants to talk about the install — the parting, the curl pattern, how laid the edges are. Almost no one wants to talk about the six weeks before it and the six weeks after. That's the part of the routine that actually decides whether your hair is thriving or just hiding under a protective style.</p>
+
+    <p>I've been doing braids, sew-ins, and wigs for twelve years, and the question I get asked most is some version of <strong>"what style should I get?"</strong> It's almost never the question that matters. The style is just the outer layer. What happens underneath it — how your scalp and strands are treated before you install, during the weeks you wear it, and the moment you take it down — is what determines whether protective styling actually protects your hair, or quietly damages it while looking great on the outside.</p>
+
+    <p>So before you book your next appointment, here's what I tell every client who sits in my chair, broken down into the three phases that actually matter.</p>
+
+    <div class="step-label">
+      <span class="step-num">1</span>
+      <h2>Before: your hair has a memory</h2>
+    </div>
+    <p>Whatever condition your hair is in on install day is the condition it'll be in when you take the style down — minus whatever damage tension and time add. A protective style doesn't repair anything. It preserves whatever state you started in, good or bad.</p>
+    <p>That means prep isn't optional, and it's not just a wash day. I'm looking for three things before I ever touch a braiding pattern or sew in a track: <strong>a clarified scalp</strong>, <strong>moisture that's actually been sealed in</strong>, and <strong>zero existing breakage at the nape and edges</strong> — because that's exactly where tension concentrates first.</p>
+
+    <ul class="checklist">
+      <li><strong>Clarify, don't just rinse.</strong> Buildup from old products sits under a style for weeks with nowhere to go. A proper clarifying wash the week of your appointment matters more than any "miracle" pre-poo.</li>
+      <li><strong>Deep condition with heat.</strong> A deep conditioner left on under a heat cap or steamer for 20–30 minutes penetrates the cuticle. Without heat, most of it sits on top and rinses away with little benefit.</li>
+      <li><strong>Trim split ends first.</strong> Splits don't pause while they're hidden under a style — they travel up the strand. Trimming before you install protects length you'd otherwise lose without realizing it.</li>
+      <li><strong>Skip heavy styling products on install day.</strong> Anything with a lot of oil or butter on freshly installed hair traps moisture against the scalp instead of letting it breathe, which is a fast track to buildup and odor.</li>
+    </ul>
+
+    <div class="step-label">
+      <span class="step-num">2</span>
+      <h2>During: the install is the easy part</h2>
+    </div>
+    <p>This is the phase most people think is "done" once they leave the chair. It isn't. Tension that feels fine on day one can become a problem by week three, and a scalp that isn't cared for under a style won't tell you anything is wrong until it's already inflamed.</p>
+
+    <p class="pull-quote">"If your scalp hurts on day one, it's not going to magically stop hurting on day five — speak up before your stylist finishes, not after you've left."</p>
+
+    <p>A few things I ask every client to commit to once the style is in:</p>
+    <ul class="checklist">
+      <li><strong>Moisturize the scalp, not just the hair.</strong> A lightweight, water-based scalp spray two to three times a week keeps the skin underneath from drying out, flaking, or itching — itching is usually the first sign something's wrong, not just "normal."</li>
+      <li><strong>Sleep on satin or silk, every night.</strong> Cotton pillowcases pull moisture out of both your scalp and any loose hair around your edges. This one habit alone extends the life of a style more than almost anything else.</li>
+      <li><strong>Don't restyle the edges constantly.</strong> Re-laying your edges with gel and a brush every single day adds repeated tension to the most fragile hair on your head. Style them well once, then leave them alone.</li>
+      <li><strong>Know the difference between "snug" and "in pain."</strong> A new style should feel secure, not like it's pulling. Persistent tension headaches or tender spots at the hairline are signs to go back to your stylist, not push through.</li>
+    </ul>
+
+    <div class="step-label">
+      <span class="step-num">3</span>
+      <h2>After: the unglamorous 80%</h2>
+    </div>
+    <p>Take-down day is where most of the actual damage either gets prevented or gets done. Rushing it, detangling dry, or going straight into another install without giving your hair a reset is how protective styling backfires.</p>
+
+    <ul class="checklist">
+      <li><strong>Detangle wet and saturated with conditioner.</strong> Dry detangling after weeks in a style is the single biggest cause of breakage I see. Hair needs slip before it sees a comb.</li>
+      <li><strong>Give your scalp a real rest period.</strong> At least a few days between take-down and your next install lets your scalp recover from sustained tension, even if it didn't hurt.</li>
+      <li><strong>Do a protein treatment if your hair feels limp or mushy.</strong> Weeks of moisture without rebuilding protein can leave strands weak and stretchy. This is the step people skip most and need most.</li>
+      <li><strong>Assess before you book the next style.</strong> If you noticed thinning, tenderness, or unusual shedding at take-down, that's information — not something to style over again immediately.</li>
+    </ul>
+
+    <hr class="divider"/>
+
+    <h2>The bottom line</h2>
+    <p>A protective style is only as protective as the routine around it. The install can be flawless and your hair can still come out worse than it went in if the prep, the maintenance, and the take-down get skipped. Treat all three phases as part of the actual service — not extra credit — and your hair will thank you long after the style itself comes down.</p>
+
+  </div>
+
+  <div class="author-card">
+    <div class="author-avatar"></div>
+    <div>
+      <h4>Dominique Carter</h4>
+      <div class="role">TDC Stylist · Hair</div>
+      <p>Dominique has spent over a decade specializing in protective styling and scalp health, and is one of the top-rated stylists in the TDC network. She believes a healthy install starts long before anyone sits in the chair.</p>
+    </div>
+  </div>
+
+  <div class="article-cta">
+    <div>
+      <h3>Ready to book with Dominique?</h3>
+      <p>Available exclusively through TDC memberships.</p>
+    </div>
+    <a href="membership.html" class="btn-pill">Join Now</a>
+  </div>
 </div>
 
-<section class="section bg-cream">
-  <div class="filter-tabs">
-    <button class="filter-tab active" onclick="filterPosts(this, 'all')">All</button>
-    <button class="filter-tab" onclick="filterPosts(this, 'hair')">Hair</button>
-    <button class="filter-tab" onclick="filterPosts(this, 'nails')">Nails</button>
-    <button class="filter-tab" onclick="filterPosts(this, 'skin')">Skin &amp; Wellness</button>
-    <button class="filter-tab" onclick="filterPosts(this, 'lashes')">Lashes &amp; Brows</button>
+<section class="related">
+  <span class="related-label">Keep Reading</span>
+  <h2>More from The Journal</h2>
+  <div class="related-grid">
+    <div class="blog-card">
+      <div class="blog-card-img"><img src="assets/image13.jpg" alt="Blowouts"></div>
+      <div class="blog-card-body">
+        <div class="blog-meta"><span class="cat">Hair</span><span>Feb 20, 2026</span></div>
+        <h3>Blowouts: Everything You've Always Wanted to Know</h3>
+        <p>Bronx-based stylist Marisol Reyes shares the technique, the products, and what makes a truly great blowout.</p>
+        <a href="#" class="link-rose">Read more →</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img"><img src="assets/image10.jpg" alt="Hyperpigmentation"></div>
+      <div class="blog-card-body">
+        <div class="blog-meta"><span class="cat">Skin &amp; Wellness</span><span>March 10, 2026</span></div>
+        <h3>Hyperpigmentation 101: What's Causing It and How to Actually Treat It</h3>
+        <p>Esthetician Yara Osei explains the real causes — and why your skincare routine may be making it worse.</p>
+        <a href="#" class="link-rose">Read more →</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img"><img src="assets/image12.jpg" alt="Lash extensions"></div>
+      <div class="blog-card-body">
+        <div class="blog-meta"><span class="cat">Lashes &amp; Brows</span><span>Feb 28, 2026</span></div>
+        <h3>How to Make Your Lash Extensions Last Longer (The Right Way)</h3>
+        <p>Lash tech Tiffany Nguyen shares her top aftercare tips to keep your set full and fresh between refills.</p>
+        <a href="#" class="link-rose">Read more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <h2>Love what you're reading?</h2>
+  <p>Become a TDC member and get access to exclusive content, events, and the services behind every article.</p>
+  <div class="cta-btns">
+    <a href="membership.html" class="btn-pill white">Join the collective</a>
+    <a href="membership.html" class="btn-pill ghost">View plans</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">The Desired Collective</div>
+  <nav class="footer-links">
+    <a href="services.html">Services</a>
+    <a href="professionals.html">Our Team</a>
+    <a href="membership.html">Membership</a>
+    <a href="blog.html">Journal</a>
+    <a href="contact.html">Support</a>
+  </nav>
+  <div class="footer-copy">© 2026 The Desired Collective. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
