@@ -1,0 +1,433 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DH | Desired Haus</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --espresso:#2b2018; --espresso-light:#3a2c22; --espresso-deep:#1d1510;
+  --cream:#f7f0e6; --ivory:#fdf9f3;
+  --sage:#8a9a7c; --sage-dark:#6f7f62;
+  --gold:#c9a86a;
+  --text-cream:#f3ece1; --text-mid-cream:rgba(243,236,225,0.62);
+  --dark:#221a14; --mid:#6b5d4f; --light:#a89a8c; --border:#e6dbc9;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--ivory);color:var(--dark);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(43,32,24,0.92);backdrop-filter:blur(12px);}
+.nav-logo{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-size:21px;font-weight:500;letter-spacing:.04em;color:var(--text-cream);text-decoration:none;}
+.nav-logo svg{width:18px;height:18px;opacity:.7;stroke:var(--sage);}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
+.nav-links a{font-size:13px;color:var(--text-mid-cream);text-decoration:none;letter-spacing:.02em;transition:color .2s;}
+.nav-links a:hover{color:var(--text-cream);}
+.btn-pill{display:inline-flex;align-items:center;justify-content:center;padding:11px 24px;background:var(--sage);color:#fff;border:none;border-radius:100px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;}
+.btn-pill:hover{background:var(--sage-dark);transform:translateY(-1px);}
+.btn-pill.outline{background:transparent;color:var(--sage);border:1.5px solid var(--sage);}
+.btn-pill.outline:hover{background:var(--sage);color:#fff;}
+.btn-pill.cream-outline{background:transparent;color:var(--text-cream);border:1.5px solid rgba(243,236,225,.4);}
+.btn-pill.cream-outline:hover{background:rgba(243,236,225,.12);}
+
+#hero{position:relative;margin-top:0;padding-top:68px;min-height:640px;background:var(--espresso);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,#3a2c22 0%,#2b2018 55%,#1d1510 100%);}
+.hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 80% 70%,rgba(138,154,124,0.18) 0%,transparent 70%);}
+.hero-badge{position:absolute;top:120px;right:8%;width:108px;height:108px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;transform:rotate(-8deg);box-shadow:0 12px 30px rgba(0,0,0,.3);}
+.hero-badge span{font-family:var(--sans);font-size:11px;font-weight:500;color:#fff;text-align:center;letter-spacing:.05em;line-height:1.4;text-transform:uppercase;}
+.hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:60px 24px 80px;max-width:640px;}
+.hero-content .eyebrow{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;}
+.hero-content h1{font-family:var(--serif);font-size:clamp(60px,9vw,108px);font-weight:300;line-height:1;color:var(--text-cream);}
+.hero-content h2{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.4vw,40px);font-weight:300;color:var(--text-cream);margin:6px 0 22px;}
+.hero-content p{font-size:14px;font-weight:300;line-height:1.75;color:var(--text-mid-cream);margin:0 auto 30px;max-width:440px;}
+.hero-btns{display:flex;gap:12px;justify-content:center;}
+
+.section{padding:96px 48px;}
+.section-label{display:block;text-align:center;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:18px;}
+.section-title{font-family:var(--serif);font-size:clamp(32px,4.2vw,52px);font-weight:300;line-height:1.15;text-align:center;color:var(--dark);margin-bottom:14px;}
+.section-title em{font-style:italic;color:var(--sage-dark);}
+.section-title.on-dark{color:var(--text-cream);}
+.section-title.on-dark em{color:var(--sage);}
+.section-sub{text-align:center;font-size:13.5px;color:var(--mid);max-width:480px;margin:0 auto 56px;line-height:1.7;}
+.section-sub.on-dark{color:var(--text-mid-cream);}
+
+#intro{background:var(--ivory);}
+.intro-collage{position:relative;max-width:900px;margin:0 auto 64px;display:grid;grid-template-columns:1.1fr 1fr;gap:22px;}
+.intro-img{border-radius:18px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 16px 40px rgba(43,32,24,.12);}
+.intro-img.tall{aspect-ratio:3/4;grid-row:span 2;transform:rotate(-1.4deg);}
+.intro-img.skew{transform:rotate(1.2deg);}
+.intro-img img,.intro-img video{width:100%;height:100%;object-fit:cover;display:block;}
+.intro-circle{position:absolute;bottom:-26px;left:38%;width:96px;height:96px;border-radius:50%;background:var(--cream);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transform:rotate(6deg);box-shadow:0 10px 26px rgba(43,32,24,.12);}
+.intro-circle span{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--sage-dark);text-align:center;line-height:1.4;}
+.intro-features{display:flex;justify-content:center;gap:60px;margin-top:56px;margin-bottom:36px;flex-wrap:wrap;}
+.feature{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:190px;text-align:center;}
+.feature-icon{width:42px;height:42px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;}
+.feature-icon svg{width:22px;height:22px;stroke:var(--sage-dark);fill:none;stroke-width:1.5;}
+.feature h3{font-size:13px;font-weight:500;color:var(--dark);}
+.feature p{font-size:12px;color:var(--mid);line-height:1.6;}
+
+#gallery{background:var(--espresso-light);padding:64px 0;overflow:hidden;}
+.gallery-strip{display:flex;gap:18px;padding:0 48px;overflow-x:auto;scrollbar-width:none;}
+.gallery-strip::-webkit-scrollbar{display:none;}
+.gallery-item{flex-shrink:0;width:220px;height:260px;border-radius:16px;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.25);}
+.gallery-item:nth-child(even){transform:translateY(18px) rotate(1deg);}
+.gallery-item:nth-child(odd){transform:rotate(-1deg);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;}
+
+#classes{background:var(--espresso);}
+.path-grid{display:flex;flex-direction:column;gap:22px;max-width:920px;margin:0 auto;}
+.path-card{display:grid;grid-template-columns:1fr 1.1fr;background:var(--ivory);border-radius:20px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.25);}
+.path-card-img{position:relative;overflow:hidden;min-height:240px;}
+.path-card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.path-card-body{padding:34px 36px;display:flex;flex-direction:column;justify-content:center;}
+.path-tag{font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:10px;}
+.path-card-body h3{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--dark);margin-bottom:10px;}
+.path-card-body p{font-size:13px;color:var(--mid);line-height:1.7;margin-bottom:16px;}
+.link-rose{font-size:12px;font-weight:500;color:var(--sage-dark);text-decoration:none;letter-spacing:.02em;transition:opacity .2s;}
+.link-rose:hover{opacity:.65;}
+.path-card:nth-child(even){grid-template-columns:1.1fr 1fr;}
+.path-card:nth-child(even) .path-card-img{order:2;}
+
+#benefits{background:var(--cream);}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 28px;max-width:880px;margin:0 auto;}
+.benefit{display:flex;flex-direction:column;gap:10px;}
+.benefit-icon svg{width:22px;height:22px;stroke:var(--sage-dark);fill:none;stroke-width:1.5;}
+.benefit h3{font-size:14px;font-weight:500;color:var(--dark);}
+.benefit p{font-size:12.5px;color:var(--mid);line-height:1.65;}
+
+#testimonials{background:var(--espresso);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto;}
+.testimonial{background:var(--espresso-light);border-radius:18px;padding:30px 26px;}
+.stars{color:var(--gold);font-size:13px;margin-bottom:14px;letter-spacing:2px;}
+.testimonial p{font-size:13px;color:var(--text-mid-cream);line-height:1.75;margin-bottom:18px;font-style:italic;}
+.testimonial-author{font-size:12.5px;font-weight:500;color:var(--text-cream);}
+
+#pricing{background:var(--ivory);}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto;}
+.price-card{background:var(--cream);border-radius:18px;border:1px solid var(--border);padding:30px 26px 26px;position:relative;transition:transform .2s,box-shadow .2s;}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(43,32,24,.1);}
+.price-card.popular{background:#fff;border-color:var(--sage);box-shadow:0 10px 32px rgba(138,154,124,.18);}
+.popular-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--sage);color:#fff;font-size:10.5px;font-weight:500;letter-spacing:.06em;padding:5px 16px;border-radius:100px;}
+.plan-name{font-size:15px;font-weight:500;margin-bottom:8px;color:var(--dark);}
+.plan-price{font-family:var(--serif);font-size:40px;font-weight:300;margin-bottom:4px;color:var(--dark);}
+.plan-price span{font-size:14px;color:var(--mid);}
+.plan-desc{font-size:12px;color:var(--mid);margin-bottom:22px;line-height:1.55;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:24px;}
+.plan-features li{font-size:12.5px;color:var(--mid);display:flex;align-items:center;gap:9px;}
+.plan-features li::before{content:'';display:inline-block;width:14px;height:14px;background:var(--sage);opacity:.25;border-radius:50%;flex-shrink:0;}
+
+#faq{background:var(--espresso);}
+.faq-layout{display:grid;grid-template-columns:1fr 2fr;gap:64px;max-width:900px;margin:0 auto;}
+.faq-intro h2{font-family:var(--serif);font-size:clamp(30px,3.4vw,42px);font-weight:300;line-height:1.2;color:var(--text-cream);margin-bottom:14px;}
+.faq-intro p{font-size:13px;color:var(--text-mid-cream);line-height:1.7;}
+.faq-item{border-bottom:1px solid rgba(243,236,225,.14);}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:19px 0;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:13.5px;color:var(--text-cream);text-align:left;gap:16px;}
+.faq-q svg{width:16px;height:16px;stroke:var(--sage);fill:none;stroke-width:2;flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-q svg{transform:rotate(180deg);}
+.faq-a{font-size:13px;color:var(--text-mid-cream);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;}
+.faq-item.open .faq-a{max-height:220px;padding-bottom:18px;}
+
+#contact{background:var(--cream);}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:900px;margin:0 auto;}
+.contact-info h2{font-family:var(--serif);font-size:clamp(28px,3.2vw,38px);font-weight:300;color:var(--dark);margin-bottom:14px;}
+.contact-info p{font-size:13px;color:var(--mid);line-height:1.7;margin-bottom:24px;}
+.contact-form{display:flex;flex-direction:column;gap:14px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group label{font-size:12px;font-weight:500;color:var(--dark);}
+.form-group input,.form-group select,.form-group textarea{font-family:var(--sans);font-size:13px;padding:11px 14px;border-radius:10px;border:1px solid var(--border);background:var(--ivory);color:var(--dark);outline:none;transition:border-color .2s;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#b8aa9a;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sage);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.btn-full{width:100%;padding:13px;font-size:14px;border-radius:12px;}
+
+footer{background:var(--espresso-deep);color:rgba(243,236,225,.55);padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-logo{font-family:var(--serif);font-size:20px;color:var(--text-cream);letter-spacing:.02em;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-size:12.5px;color:rgba(243,236,225,.55);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--sage);}
+.footer-copy{font-size:12px;}
+
+@media (max-width:768px){
+  nav{padding:0 20px;} .nav-links{display:none;}
+  .section{padding:64px 20px;}
+  .intro-collage{grid-template-columns:1fr;} .intro-img.tall{aspect-ratio:4/3;grid-row:span 1;transform:none;} .intro-img.skew{transform:none;}
+  .intro-circle{display:none;}
+  .path-card,.path-card:nth-child(even){grid-template-columns:1fr;}
+  .path-card-img{order:0 !important;}
+  .benefits-grid,.testimonials-grid,.pricing-grid,.faq-layout,.contact-layout{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .hero-badge{width:80px;height:80px;right:6%;top:90px;}
+  footer{padding:32px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 0v10m0 0l-4-4m4 4l4-4"/></svg>
+    DH
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Service</a></li>
+    <li><a href="#bookings">Bookings</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#professionals">Professionals</a></li>
+    <li><a href="#memberships">Memberships</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#bookings" class="btn-pill">Book a Service</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge"><span>✦ Unlimited Beauty</span></div>
+  <div class="hero-content">
+    <span class="eyebrow">Beauty &amp; Wellness, Reimagined</span>
+    <h1>DH</h1>
+    <h2>Desired Haus</h2>
+    <p>Luxury beauty and wellness shouldn't break the bank. Get unlimited (yes, you read that right) services monthly based on <i>your</i> needs with top rated professionals at a monthly subscription cost.</p>
+    <div class="hero-btns">
+      <a href="membership.html" class="btn-pill">Join Now</a>
+      <a href="#pricing" class="btn-pill cream-outline">View Memberships</a>
+    </div>
+  </div>
+</section>
+
+<section id="intro" class="section">
+  <span class="section-label">Introduction</span>
+  <h2 class="section-title">Reimagining your <em>wellness</em> and beauty</h2>
+  <p class="section-sub">Reconnect with your beauty, body and mind with premium, accessible unlimited services on your schedule and your price.</p>
+
+  <div class="intro-collage">
+    <div class="intro-img tall">
+      <img src="assets/image1.svg" alt="Beauty Service"/>
+    </div>
+    <div class="intro-img skew">
+      <video autoplay muted loop playsinline>
+        <source src="assets/video1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="intro-img">
+      <img src="assets/image3.svg" alt="Skin Care"/>
+    </div>
+    <div class="intro-circle"><span>✦ Vetted Pros</span></div>
+  </div>
+
+  <div class="intro-features">
+    <div class="feature">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+      <h3>Your Place or Ours</h3>
+      <p>Book a studio appointment or invite a professional to come to you.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+      <h3>No Strings Attached</h3>
+      <p>Pause or cancel anytime, no questions asked.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <h3>Only the Best, Always</h3>
+      <p>Every professional is thoroughly vetted for skill, excellence, and the customer experience you expect.</p>
+    </div>
+  </div>
+  <div style="text-align:center"><a href="membership.html" class="btn-pill">Join Now</a></div>
+</section>
+
+<section id="gallery">
+  <div class="gallery-strip">
+    <div class="gallery-item"><img src="assets/image15.jpg" alt=""></div>
+    <div class="gallery-item"><img src="assets/image16.jpg" alt=""></div>
+    <div class="gallery-item"><img src="assets/image17.jpg" alt=""></div>
+    <div class="gallery-item"><img src="assets/image18.jpg" alt=""></div>
+    <div class="gallery-item"><img src="assets/image19.jpg" alt=""></div>
+    <div class="gallery-item"><img src="assets/image20.jpg" alt=""></div>
+  </div>
+</section>
+
+<section id="classes" class="section">
+  <span class="section-label">Services</span>
+  <h2 class="section-title on-dark">Choose Your <em>Path</em></h2>
+  <p class="section-sub on-dark">Whether you're seeking a flawless install, stunning lashes, or pinterest-board nails, there's a plan tailored to your every need.</p>
+
+  <div class="path-grid">
+    <div class="path-card">
+      <div class="path-card-img"><img src="assets/image2.svg" alt="Hair"/></div>
+      <div class="path-card-body">
+        <span class="path-tag">Hair</span>
+        <h3>Hair</h3>
+        <p>Sew-ins, Installs, Braids, Silk press, Blowouts, Wash &amp; go, Treatments, Haircuts &amp; more — because your crown deserves royal treatment.</p>
+        <a href="professionals.html" class="link-rose">Meet our hair stylists →</a>
+      </div>
+    </div>
+    <div class="path-card">
+      <div class="path-card-img"><img src="assets/image6.svg" alt="Nails"/></div>
+      <div class="path-card-body">
+        <span class="path-tag">Nails</span>
+        <h3>Nails</h3>
+        <p>Manicures, Pedicures, Foot scrubs, Acrylics, Gel, and more — perfectly polished from every angle.</p>
+        <a href="professionals.html" class="link-rose">Meet our nail techs →</a>
+      </div>
+    </div>
+    <div class="path-card">
+      <div class="path-card-img"><img src="assets/image7.jpg" alt="Eyes"/></div>
+      <div class="path-card-body">
+        <span class="path-tag">Eyes</span>
+        <h3>Eyes</h3>
+        <p>Full lash sets, complimentary refills, eyebrow wax, tint, lamination, and shaping — because the details make all the difference.</p>
+        <a href="professionals.html" class="link-rose">Meet our lash techs →</a>
+      </div>
+    </div>
+    <div class="path-card">
+      <div class="path-card-img"><img src="assets/image4.svg" alt="And so much more"/></div>
+      <div class="path-card-body">
+        <span class="path-tag">More</span>
+        <h3>And so much more...</h3>
+        <p>Facials, waxing, massages, makeup application, and more — your self-care journey doesn't stop here.</p>
+        <a href="professionals.html" class="link-rose">View all services →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits" class="section">
+  <span class="section-label">Benefits</span>
+  <h2 class="section-title">More Than a Membership — It's a <em>Movement</em></h2>
+  <p class="section-sub">For too long, luxury beauty has felt out of reach for many women in our community. Desired Haus is changing that — one subscription at a time.</p>
+  <div class="benefits-grid">
+    <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h3>Affordable Luxury</h3><p>Top-tier beauty services shouldn't be a splurge. Your subscription gives you unlimited access to premium professionals at a fraction of the traditional cost.</p></div>
+    <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Community First</h3><p>Our platform celebrates people from all walks of life, celebrating and centering your beauty needs — the textures, the techniques, the culture.</p></div>
+    <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><h3>Consistency is Key</h3><p>Regular beauty maintenance isn't vanity — it's wellness and self-care. TDC makes it easy to show up for yourself, every single month.</p></div>
+    <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><h3>Professionals Who Get You</h3><p>Every expert on our platform understands your unique beauty and wellness needs and is committed to delivering results that make you feel heard and celebrated.</p></div>
+    <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg></div><h3>Get Back Your Time</h3><p>No more hunting for availability or vetting strangers online. Book trusted professionals in minutes and spend your energy on what truly matters.</p></div>
+    <div class="benefit"><div class="benefit-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h3>Flexibility Without Compromise</h3><p>TDC knows life happens. Enjoy the freedom to adjust, pause, or cancel your membership on your terms, with no hidden costs or fine print.</p></div>
+  </div>
+</section>
+
+<section id="testimonials" class="section">
+  <span class="section-label">Testimonials</span>
+  <h2 class="section-title on-dark">What our <em>members</em> say</h2>
+  <p class="section-sub on-dark">Real stories. Real reactions. Real glow.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"I've been getting sew-ins for years, but finding a high-quality stylist who was reliable and available was always a headache. Since I've joined Desired Haus, I've had the same amazing experience every single appointment, not to mention I'm saving so much more than before. This is exactly what our community needs."</p><span class="testimonial-author">— Jasmine R.</span></div>
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"I'm a super busy mom and barely have the time (or budget) to make myself a priority. This membership changed that for me. I'm able to keep up with my hair, lashes and brows regularly now, and I finally feel like myself again."</p><span class="testimonial-author">— Lena K.</span></div>
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"At first I was skeptical about this subscription and the "unlimited" beauty services, but TDC actually is the real deal. The stylists are so kind and talented. I'm never booking with random stylists online or on social media again."</p><span class="testimonial-author">— Marco T.</span></div>
+  </div>
+</section>
+
+<section id="pricing" class="section">
+  <span class="section-label">Memberships</span>
+  <h2 class="section-title">Find the right <em>rhythm</em> for your routine</h2>
+  <p class="section-sub">Choose from flexible plans designed for every lifestyle — whether you're the one who does it all, keeps it simple, or somewhere beautifully in between. Your care, your pace.</p>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="plan-name">Tier 1: Essence</div>
+      <div class="plan-price">$99<span>/month</span></div>
+      <div class="plan-desc">Perfect for individuals who value basic but essential beauty services on a regular basis.</div>
+      <ul class="plan-features"><li>Manicures</li><li>Pedicures</li><li>Eyebrow waxing or threading</li><li>10% discount on all additional services</li></ul>
+      <a href="membership.html" class="btn-pill outline" style="width:100%;text-align:center;display:block">Get Started</a>
+    </div>
+    <div class="price-card popular">
+      <div class="popular-badge">Popular</div>
+      <div class="plan-name">Tier 2: Radiance</div>
+      <div class="plan-price">$189<span>/month</span></div>
+      <div class="plan-desc">For a more comprehensive beauty experience, offering both basic and premium services.</div>
+      <ul class="plan-features"><li>Everything in Essence</li><li>Add'l eyebrow tint, lamination &amp; shaping</li><li>Hair maintenance services</li><li>Makeup applications</li><li>Express facials</li></ul>
+      <a href="membership.html" class="btn-pill" style="width:100%;text-align:center;display:block">Join Now</a>
+    </div>
+    <div class="price-card">
+      <div class="plan-name">Tier 3: Luxe Glam</div>
+      <div class="plan-price">$399<span>/month</span></div>
+      <div class="plan-desc">Premium beauty services at any time, with no restrictions on the type of treatments.</div>
+      <ul class="plan-features"><li>Everything in Radiance</li><li>Priority access &amp; booking</li><li>Eyelash extensions</li><li>Premium hair services and extensions</li><li>20% discount on premium add-on services</li></ul>
+      <a href="luxeglam.html" class="btn-pill outline" style="width:100%;text-align:center;display:block">Start Luxe</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section">
+  <div class="faq-layout">
+    <div class="faq-intro">
+      <span class="section-label" style="text-align:left">FAQ</span>
+      <h2>Got Questions?</h2>
+      <p>Find answers to the most common questions about memberships, subscriptions, services, and more.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open"><button class="faq-q">Can I pause or cancel my membership anytime?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Absolutely. You can pause right before your vacay or cancel because you're not feeling it. There's no cancellation fees or hoops to jump through. It's your self-care journey on your terms.</div></div>
+      <div class="faq-item"><button class="faq-q">Where are services offered?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">We currently offer services in select locations, with more professionals joining our network every day. Whether you prefer an in-studio experience or the ease of an at-home visit, availability continues to expand as we grow. Stay tuned!</div></div>
+      <div class="faq-item"><button class="faq-q">How are professionals vetted?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Every professional on our platform goes through a thorough vetting process by our Founder who evaluates their qualifications, portfolio, and commitment to exceptional customer satisfaction (and she's very picky!). Only the best make the cut — because you're worth nothing less.</div></div>
+      <div class="faq-item"><button class="faq-q">How many appointments can I book per month?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">As many as you need — and want. We mean it when we say it's unlimited. Book as often as your schedule allows, based on the services included in your plan.</div></div>
+      <div class="faq-item"><button class="faq-q">Can I change my plan after signing up?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Yes! You can upgrade, downgrade or adjust your services at any time. We believe your membership should grow with you and your needs.</div></div>
+      <div class="faq-item"><button class="faq-q">Are services available for all hair textures and skin tones?<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Yes and yes. We proudly offer professionals who are experienced across a wide range of textures, tones, and techniques. Our experts celebrate your beauty the exact way it was meant to be.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="contact-layout">
+    <div class="contact-info">
+      <span class="section-label" style="text-align:left">Contact</span>
+      <h2>Beauty Professional?</h2>
+      <p>Let's build something together. We're always looking for talented, dedicated beauty professionals who are ready to grow their clientele and be part of a community redefining beauty access. If that sounds like you — we want to hear from you.</p>
+      <a href="careers.html" class="btn-pill outline">Learn More</a>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input type="text" placeholder="Jane Smith"/></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="jane@example.com"/></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(123)456-7890"/></div>
+        </div>
+        <div class="form-group">
+          <label>Which beauty/wellness services do you specialize in?</label>
+          <select>
+            <option value="" disabled selected>Select...</option>
+            <option>Hair</option><option>Nails</option><option>Skincare</option><option>Lashes/brows</option><option>Makeup</option><option>Eyelashes</option><option>Body/holistic therapy</option><option>Waxing</option><option>More than one specialty</option><option>Something else (please specify in the box below)</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Anything else?..."></textarea></div>
+        <button class="btn-pill btn-full" onclick="handleSubmit(event)">Become a TDC Professional!</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Desired Haus</div>
+  <nav class="footer-links">
+    <a href="referral.html">Referrals</a>
+    <a href="bookings.html">Bookings</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+  <div class="footer-copy">© 2026 Desired Haus. All rights reserved.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = e.target.dataset.t || 'translateY(0)'; } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.path-card, .benefit, .testimonial, .price-card, .feature').forEach(el => {
+    el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target;
+    btn.textContent = 'Message sent ✓'; btn.style.background = '#7eaa86'; btn.disabled = true;
+    setTimeout(() => { btn.textContent = 'Send your message'; btn.style.background=''; btn.disabled = false; }, 3000);
+  }
+</script>
+</body>
+</html>
