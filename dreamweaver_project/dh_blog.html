@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Journal — TDC | The Desired Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --espresso:#2b2018; --espresso-light:#3a2c22; --espresso-deep:#1d1510;
+  --cream:#f7f0e6; --ivory:#fdf9f3;
+  --sage:#8a9a7c; --sage-dark:#6f7f62;
+  --gold:#c9a86a;
+  --text-cream:#f3ece1; --text-mid-cream:rgba(243,236,225,0.62);
+  --dark:#221a14; --mid:#6b5d4f; --light:#a89a8c; --border:#e6dbc9;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--ivory);color:var(--dark);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(43,32,24,0.92);backdrop-filter:blur(12px);}
+.nav-logo{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:.02em;color:var(--text-cream);text-decoration:none;}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
+.nav-links a{font-size:13px;color:var(--text-mid-cream);text-decoration:none;letter-spacing:.02em;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--sage);}
+.btn-pill{display:inline-flex;align-items:center;justify-content:center;padding:11px 24px;background:var(--sage);color:#fff;border:none;border-radius:100px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;}
+.btn-pill:hover{background:var(--sage-dark);transform:translateY(-1px);}
+.btn-pill.outline{background:transparent;color:var(--sage);border:1.5px solid var(--sage);}
+.btn-pill.outline:hover{background:var(--sage);color:#fff;}
+.btn-pill.white{background:var(--ivory);color:var(--dark);}
+.btn-pill.white:hover{background:#fff;}
+.btn-pill.ghost{background:transparent;color:var(--text-cream);border:1.5px solid rgba(243,236,225,.4);}
+.btn-pill.ghost:hover{background:rgba(243,236,225,.12);}
+
+.page-hero{padding:150px 48px 70px;text-align:center;background:var(--espresso);}
+.breadcrumb{display:flex;justify-content:center;gap:8px;font-size:12px;color:var(--text-mid-cream);margin-bottom:18px;}
+.breadcrumb a{color:var(--text-mid-cream);text-decoration:none;}
+.breadcrumb a:hover{color:var(--sage);}
+.page-hero h1{font-family:var(--serif);font-size:clamp(38px,5.5vw,60px);font-weight:300;color:var(--text-cream);margin-bottom:14px;}
+.page-hero p{font-size:13.5px;color:var(--text-mid-cream);max-width:480px;margin:0 auto;line-height:1.7;}
+
+.section{padding:90px 48px;}
+.bg-cream{background:var(--cream);}
+.bg-warm-white{background:var(--ivory);}
+
+.filter-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:48px;}
+.filter-tab{padding:9px 20px;border-radius:100px;font-family:var(--sans);font-size:12.5px;color:var(--mid);background:#fff;border:1px solid var(--border);cursor:pointer;transition:all .2s;}
+.filter-tab:hover,.filter-tab.active{background:var(--sage);color:#fff;border-color:var(--sage);}
+
+.featured-post{max-width:880px;margin:0 auto 56px;background:#fff;border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 16px 40px rgba(43,32,24,.08);transition:transform .2s,box-shadow .2s;}
+.featured-post:hover{transform:translateY(-3px);}
+.featured-post-img{min-height:320px;position:relative;overflow:hidden;}
+.featured-post-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.featured-post-body{padding:38px 34px;display:flex;flex-direction:column;justify-content:center;}
+.featured-badge{display:inline-block;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--sage);padding:4px 12px;border-radius:100px;margin-bottom:16px;width:fit-content;}
+.featured-post-body h2{font-family:var(--serif);font-size:29px;font-weight:300;line-height:1.25;color:var(--dark);margin-bottom:12px;}
+.featured-post-body p{font-size:13.5px;color:var(--mid);line-height:1.7;margin-bottom:20px;}
+.blog-meta-row{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--light);margin-bottom:14px;}
+.blog-meta-row .cat{color:var(--sage-dark);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-size:10.5px;}
+.blog-meta{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--light);margin-bottom:10px;}
+.blog-meta .cat{color:var(--sage-dark);font-weight:500;letter-spacing:.05em;text-transform:uppercase;font-size:10.5px;}
+
+.cards-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:0 auto;}
+.blog-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(43,32,24,.06);transition:transform .2s,box-shadow .2s;}
+.blog-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(43,32,24,.1);}
+.blog-card-img{width:100%;aspect-ratio:4/3;overflow:hidden;}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.blog-card-body{padding:20px 22px 22px;}
+.blog-card-body h3{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--dark);margin-bottom:8px;line-height:1.3;}
+.blog-card-body p{font-size:12.5px;color:var(--mid);line-height:1.6;margin-bottom:14px;}
+.link-rose{font-size:12px;font-weight:500;color:var(--sage-dark);text-decoration:none;letter-spacing:.02em;transition:opacity .2s;}
+.link-rose:hover{opacity:.65;}
+
+.newsletter-strip{max-width:660px;margin:0 auto;background:var(--espresso-deep);border-radius:20px;padding:44px 38px;text-align:center;}
+.newsletter-strip h3{font-family:var(--serif);font-size:27px;font-weight:300;color:#fff;margin-bottom:8px;}
+.newsletter-strip p{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:24px;line-height:1.6;}
+.newsletter-form{display:flex;gap:8px;max-width:400px;margin:0 auto;}
+.newsletter-form input{flex:1;font-family:var(--sans);font-size:13px;padding:11px 16px;border-radius:100px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;outline:none;transition:border-color .2s;}
+.newsletter-form input::placeholder{color:rgba(255,255,255,.35);}
+.newsletter-form input:focus{border-color:var(--sage);}
+
+.cta-banner{background:var(--espresso);padding:80px 48px;text-align:center;}
+.cta-banner h2{font-family:var(--serif);font-size:clamp(28px,3.4vw,40px);font-weight:300;color:var(--text-cream);margin-bottom:12px;}
+.cta-banner p{font-size:13.5px;color:var(--text-mid-cream);max-width:480px;margin:0 auto 28px;line-height:1.7;}
+.cta-btns{display:flex;justify-content:center;gap:12px;}
+
+footer{background:var(--espresso-deep);color:rgba(243,236,225,.55);padding:48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-logo{font-family:var(--serif);font-size:20px;color:var(--text-cream);letter-spacing:.02em;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{font-size:12.5px;color:rgba(243,236,225,.55);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--sage);}
+.footer-copy{font-size:12px;}
+
+.scroll-fade{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.scroll-fade.visible{opacity:1;transform:translateY(0);}
+
+@media (max-width:768px){
+  nav{padding:0 20px;} .nav-links{display:none;}
+  .page-hero{padding:130px 20px 50px;}
+  .section{padding:60px 20px;}
+  .featured-post{grid-template-columns:1fr;} .featured-post-img{min-height:220px;}
+  .cards-grid-3{grid-template-columns:1fr;}
+  .newsletter-form{flex-direction:column;}
+  .cta-banner{padding:56px 20px;}
+  footer{padding:32px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">The Desired Collective</a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="professionals.html">Our Team</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="blog.html" class="active">Journal</a></li>
+    <li><a href="contact.html">Support</a></li>
+  </ul>
+  <a href="membership.html" class="btn-pill">Join Now</a>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>The Journal</span></div>
+  <h1>The TDC Journal</h1>
+  <p>Beauty tips, wellness insights, style guides, and stories from our community — written for and by the women who make up The Desired Collective.</p>
+</div>
+
+<section class="section bg-cream">
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterPosts(this, 'all')">All</button>
+    <button class="filter-tab" onclick="filterPosts(this, 'hair')">Hair</button>
+    <button class="filter-tab" onclick="filterPosts(this, 'nails')">Nails</button>
+    <button class="filter-tab" onclick="filterPosts(this, 'skin')">Skin &amp; Wellness</button>
+    <button class="filter-tab" onclick="filterPosts(this, 'lashes')">Lashes &amp; Brows</button>
